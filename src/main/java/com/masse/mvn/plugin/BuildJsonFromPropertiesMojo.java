@@ -1,4 +1,4 @@
-package com.gt.fr.daf.infogest.mvn.plugin.propertiestojson;
+package com.masse.mvn.plugin;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.

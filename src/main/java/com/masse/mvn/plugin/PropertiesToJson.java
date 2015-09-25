@@ -1,4 +1,4 @@
-package com.gt.fr.daf.infogest.mvn.plugin.propertiestojson;
+package com.masse.mvn.plugin;
 
 import java.util.TreeMap;
 
