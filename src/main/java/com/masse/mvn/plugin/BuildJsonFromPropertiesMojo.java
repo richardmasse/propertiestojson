@@ -30,6 +30,7 @@ import java.util.Properties;
 import java.util.TreeMap;
 
 import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -76,8 +77,9 @@ public class BuildJsonFromPropertiesMojo
     
     
     private void buidJsonTargetFile(File inputFile) throws MojoExecutionException {
-		String inputFileString = inputFile.getAbsolutePath().substring(inputFile.getAbsolutePath().lastIndexOf("\\")+1);
-		String outputFileString = jsonTargetPath + "\\" + inputFileString.substring(0, inputFileString.lastIndexOf(".")) + ".json";
+
+		String inputFileString = inputFile.getAbsolutePath().substring(inputFile.getAbsolutePath().lastIndexOf(SystemUtils.IS_OS_LINUX ? "/" : "\\") + 1);
+		String outputFileString = jsonTargetPath + new String(SystemUtils.IS_OS_LINUX ? "/" : "\\") + inputFileString.substring(0, inputFileString.lastIndexOf("."));
        
     	getLog().info("Process file " + inputFileString);
     	
