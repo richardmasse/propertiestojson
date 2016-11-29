@@ -79,7 +79,7 @@ public class BuildJsonFromPropertiesMojo
     private void buidJsonTargetFile(File inputFile) throws MojoExecutionException {
 
 		String inputFileString = inputFile.getAbsolutePath().substring(inputFile.getAbsolutePath().lastIndexOf(SystemUtils.IS_OS_LINUX ? "/" : "\\") + 1);
-		String outputFileString = jsonTargetPath + new String(SystemUtils.IS_OS_LINUX ? "/" : "\\") + inputFileString.substring(0, inputFileString.lastIndexOf("."));
+		String outputFileString = jsonTargetPath + new String(SystemUtils.IS_OS_LINUX ? "/" : "\\") + inputFileString.substring(0, inputFileString.lastIndexOf(".")) + ".json";
        
     	getLog().info("Process file " + inputFileString);
     	
