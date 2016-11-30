@@ -110,6 +110,13 @@ public class BuildJsonFromPropertiesMojo
 					if(line.startsWith("#")){
 						continue;
 			        }
+		    		int equalsIndex = line.indexOf("=");
+		    		if (equalsIndex < 0) {
+		    			continue;
+		    		}
+		    		line = line.replace("\"", "&quot;");
+		    		line = line.replace("\\", "\\\\\\\\");
+		    		line = line.replace("	", "");
 					writer.write(line + "\n");
 				}
 			}
